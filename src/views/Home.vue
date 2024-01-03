@@ -61,13 +61,16 @@
             v-on:click="showNextExercise('second')"
             >{{
               showExercise.second
-                ? 'Hide the next exercise'
-                : 'Show the next exercise'
+                ? "Hide the next exercise"
+                : "Show the next exercise"
             }}</a
           >
         </div>
       </section>
-      <section v-if="showExercise.second" class="mt-10">
+      <section
+        v-if="showExercise.second"
+        class="mt-10"
+      >
         <h2 class="font-bold text-2xl leading-6">Exercise 2</h2>
         <div class="mt-5">
           <p>
@@ -87,13 +90,16 @@
             v-on:click="showNextExercise('third')"
             >{{
               showExercise.third
-                ? 'Hide the next exercise'
-                : 'Show the next exercise'
+                ? "Hide the next exercise"
+                : "Show the next exercise"
             }}</a
           >
         </div>
       </section>
-      <section v-if="showExercise.third" class="mt-10">
+      <section
+        v-if="showExercise.third"
+        class="mt-10"
+      >
         <h2 class="font-bold text-2xl leading-6">Exercise 3</h2>
         <div class="mt-5">
           <p>
@@ -107,15 +113,15 @@
 </template>
 
 <script setup lang="ts">
-import { reactive } from 'vue'
-import { ShowExercises } from '../types/exercise'
+import { reactive } from "vue";
+import { ShowExercises } from "../types/exercise";
 
 const showExercise = reactive<ShowExercises>({
   second: false,
   third: false,
-})
+});
 
 const showNextExercise = (exercise: keyof ShowExercises) => {
-  showExercise[exercise] = !showExercise[exercise]
-}
+  showExercise[exercise] = !showExercise[exercise];
+};
 </script>
