@@ -14,6 +14,9 @@
     "vue": "^3.3.4",
     "vue-router": "^4.2.4"
   },
+  "prettier": {
+    "singleAttributePerLine": true
+  },
   "devDependencies": {
     "@vitejs/plugin-vue": "^4.3.4",
     "@vue/eslint-config-prettier": "^8.0.0",
