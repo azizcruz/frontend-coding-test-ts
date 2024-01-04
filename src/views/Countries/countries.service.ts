@@ -1,6 +1,6 @@
-import { Country, ListCountry } from "./countries.types";
+import { Country, ListCountry } from './countries.types'
 
-const url = "https://countries.trevorblades.com/";
+const url = 'https://countries.trevorblades.com/'
 
 export async function fetchCountries(): Promise<ListCountry[]> {
   const query = `
@@ -11,23 +11,23 @@ export async function fetchCountries(): Promise<ListCountry[]> {
             emoji 
           }
     }
-    `;
+    `
 
   const options = {
-    method: "POST",
+    method: 'POST',
     headers: {
-      "Content-Type": "application/json",
-      Accept: "application/json",
+      'Content-Type': 'application/json',
+      Accept: 'application/json',
     },
     body: JSON.stringify({ query }),
-  };
+  }
 
   try {
-    const response = await fetch(url, options);
-    const data = await response.json();
-    return data.data.countries;
+    const response = await fetch(url, options)
+    const data = await response.json()
+    return data.data.countries
   } catch (error) {
-    throw new Error("Failed to fetch countries", { cause: error });
+    throw new Error('Failed to fetch countries', { cause: error })
   }
 }
 
@@ -60,24 +60,22 @@ export async function fetchCountryByCode(
         }
       }
     }
-    `;
-
-  console.log(query);
+    `
 
   const options = {
-    method: "POST",
+    method: 'POST',
     headers: {
-      "Content-Type": "application/json",
-      Accept: "application/json",
+      'Content-Type': 'application/json',
+      Accept: 'application/json',
     },
     body: JSON.stringify({ query }),
-  };
+  }
 
   try {
-    const response = await fetch(url, options);
-    const data = await response.json();
-    return data.data.countries.length > 0 ? data.data.countries[0] : null;
+    const response = await fetch(url, options)
+    const data = await response.json()
+    return data.data.countries.length > 0 ? data.data.countries[0] : null
   } catch (error) {
-    throw new Error("Failed to fetch countries", { cause: error });
+    throw new Error('Failed to fetch countries', { cause: error })
   }
 }

@@ -1,52 +1,47 @@
-import type { App } from "vue";
+import type { App } from 'vue'
 import {
   createRouter,
   createWebHistory,
   Router,
   RouteRecordRaw,
-} from "vue-router";
-import LayoutMain from "../components/layout/LayoutMain.vue";
-import Error from "../views/Error.vue";
-import Home from "../views/Home.vue";
-import Countries from "../views/Countries/Countries.vue";
-import CountryDetails from "../views/Countries/components/CountryDetails.vue";
+} from 'vue-router'
+import LayoutMain from '../components/layout/LayoutMain.vue'
+import Error from '../views/Error.vue'
+import Home from '../views/Home.vue'
+import Countries from '../views/Countries/Countries.vue'
+import CountryDetails from '../views/Countries/components/CountryDetails.vue'
 
 const mainRoutes: RouteRecordRaw[] = [
   {
-    path: "/",
-    name: "Home",
-    props: true,
+    path: '/',
+    name: 'Home',
     component: Home,
   },
   {
-    path: "/countries",
-    name: "countries",
-    props: true,
+    path: '/countries',
+    name: 'countries',
     component: Countries,
   },
   {
-    path: "/countries/:code",
-    name: "country-details",
-    props: true,
+    path: '/countries/:code',
+    name: 'country-details',
     component: CountryDetails,
   },
-];
+]
 
 const routes: RouteRecordRaw[] = [
   {
-    path: "/error",
-    alias: "/:pathMatch(.*)*",
-    name: "Error",
-    props: true,
+    path: '/error',
+    alias: '/:pathMatch(.*)*',
+    name: 'Error',
     component: Error,
   },
   {
-    path: "/",
-    props: true,
+    path: '/',
     component: LayoutMain,
     children: mainRoutes,
   },
-];
+]
 
 export default function initializeRouter(app: App): Router {
   const router: Router = createRouter({
@@ -54,13 +49,13 @@ export default function initializeRouter(app: App): Router {
     routes,
     scrollBehavior(to, from, savedPosition) {
       if (savedPosition) {
-        return savedPosition;
+        return savedPosition
       }
-      return { top: 0 };
+      return { top: 0 }
     },
-  });
+  })
 
-  app.use(router);
+  app.use(router)
 
-  return router;
+  return router
 }

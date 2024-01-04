@@ -4,6 +4,7 @@
     <div class="text-xl">{{ props.emoji }}</div>
     <div
       class="cursor-pointer active:scale-90"
+      data-test="details-link"
       v-on:click="
         router.push({ name: 'country-details', params: { code: props.code } })
       "
@@ -14,12 +15,12 @@
 </template>
 
 <script setup lang="ts">
-import { useRouter } from "vue-router";
-import { ListCountry } from "../countries.types";
+import { useRouter } from 'vue-router'
+import { ListCountry } from '../countries.types'
 
-const props = defineProps<ListCountry>();
+const props = defineProps<ListCountry>()
 
-const router = useRouter();
+const router = useRouter()
 </script>
 
 <style scoped></style>

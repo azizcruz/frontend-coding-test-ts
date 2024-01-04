@@ -61,8 +61,8 @@
             v-on:click="showNextExercise('second')"
             >{{
               showExercise.second
-                ? "Hide the next exercise"
-                : "Show the next exercise"
+                ? 'Hide the next exercise'
+                : 'Show the next exercise'
             }}</a
           >
         </div>
@@ -90,8 +90,8 @@
             v-on:click="showNextExercise('third')"
             >{{
               showExercise.third
-                ? "Hide the next exercise"
-                : "Show the next exercise"
+                ? 'Hide the next exercise'
+                : 'Show the next exercise'
             }}</a
           >
         </div>
@@ -113,15 +113,15 @@
 </template>
 
 <script setup lang="ts">
-import { reactive } from "vue";
-import { ShowExercises } from "../types/exercise";
+import { reactive } from 'vue'
+import { ShowExercises } from '../types/exercise'
 
 const showExercise = reactive<ShowExercises>({
   second: false,
   third: false,
-});
+})
 
 const showNextExercise = (exercise: keyof ShowExercises) => {
-  showExercise[exercise] = !showExercise[exercise];
-};
+  showExercise[exercise] = !showExercise[exercise]
+}
 </script>
